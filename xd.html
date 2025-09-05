@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receb Games — Get Your Key</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .discord {
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 420px;
+    }
+    .discord iframe {
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      height: 300px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 30px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.3);
+      text-align: center;
+    }
+    .key-box {
+      margin: 20px 0;
+      padding: 14px;
+      border: 1px dashed rgba(255,255,255,0.3);
+      border-radius: 12px;
+      font-family: monospace;
+      font-size: 18px;
+      word-break: break-all;
+    }
+    .btn {
+      background: linear-gradient(135deg, #ffcc00, #ff8800);
+      border: none;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform .1s ease, box-shadow .2s ease;
+      margin: 5px;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
+    }
+    .character {
+      margin-top: 40px;
+    }
+    .character img {
+      max-width: 180px;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #aaa;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      padding: 20px;
+    }
+    .overlay.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="discord">
+    <iframe src="https://discord.com/widget?id=1413236144438513807&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <div class="card" id="mainCard">
+    <h2>Get Your One-Time Key</h2>
+    <p>Click the button below to generate and copy your one-time key.</p>
+
+    <div id="keyBox" class="key-box">You haven't generated a key yet.</div>
+    <button id="getBtn" class="btn">Get Key</button>
+    <button id="copyBtn" class="btn" disabled>Copy Key</button>
+  </div>
+
+  <div class="character">
+    <img src="Adsız_tasarım-removebg-preview.png" alt="Receb Games Character">
+  </div>
+
+  <footer>© 2025 Receb Games</footer>
+
+  <div id="overlay" class="overlay hidden">
+    ✅ You have successfully copied your key. Please use it in the game.
+  </div>
+
+  <script>
+    const getBtn = document.getElementById('getBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const keyBox = document.getElementById('keyBox');
+    const overlay = document.getElementById('overlay');
+    const mainCard = document.getElementById('mainCard');
+
+    let generated = false;
+
+    function randomKey() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let key = '';
+      for (let i = 0; i < 20; i++) {
+        key += chars[Math.floor(Math.random() * chars.length)];
+        if ((i+1) % 5 === 0 && i < 19) key += '-';
+      }
+      return key;
+    }
+
+    getBtn.addEventListener('click', () => {
+      if (generated) return; // only once
+      const newKey = randomKey();
+      keyBox.textContent = newKey;
+      copyBtn.disabled = false;
+      generated = true;
+      getBtn.disabled = true;
+    });
+
+    copyBtn.addEventListener('click', () => {
+      const key = keyBox.textContent;
+      if (key && key !== "You haven't generated a key yet.") {
+        navigator.clipboard.writeText(key).then(() => {
+          overlay.classList.remove('hidden');
+          mainCard.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
