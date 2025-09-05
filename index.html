@@ -17,17 +17,6 @@
       min-height: 100vh;
       text-align: center;
     }
-    .discord {
-      margin-bottom: 30px;
-      width: 100%;
-      max-width: 420px;
-    }
-    .discord iframe {
-      border: none;
-      border-radius: 12px;
-      width: 100%;
-      height: 300px;
-    }
     .card {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -96,8 +85,6 @@
   </style>
 </head>
 <body>
-  
-
   <div class="card" id="mainCard">
     <h2>Get Your One-Time Key</h2>
     <p>Click the button below to generate and copy your one-time key.</p>
@@ -118,6 +105,8 @@
   </div>
 
   <script>
+    const API_URL = "https://recebgames.pazarimucuzluk.workers.dev/issue";
+
     const getBtn = document.getElementById('getBtn');
     const copyBtn = document.getElementById('copyBtn');
     const keyBox = document.getElementById('keyBox');
@@ -126,23 +115,22 @@
 
     let generated = false;
 
-    function randomKey() {
-      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-      let key = '';
-      for (let i = 0; i < 20; i++) {
-        key += chars[Math.floor(Math.random() * chars.length)];
-        if ((i+1) % 5 === 0 && i < 19) key += '-';
-      }
-      return key;
-    }
-
-    getBtn.addEventListener('click', () => {
+    getBtn.addEventListener('click', async () => {
       if (generated) return; // only once
-      const newKey = randomKey();
-      keyBox.textContent = newKey;
-      copyBtn.disabled = false;
-      generated = true;
       getBtn.disabled = true;
+      try {
+        const resp = await fetch(API_URL, { method: "POST" });
+        const data = await resp.json();
+        if (resp.ok && data.key) {
+          keyBox.textContent = data.key;
+          copyBtn.disabled = false;
+          generated = true;
+        } else {
+          keyBox.textContent = data.error || "Failed to get key.";
+        }
+      } catch (err) {
+        keyBox.textContent = "Error connecting to server.";
+      }
     });
 
     copyBtn.addEventListener('click', () => {
