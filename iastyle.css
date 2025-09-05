@@ -1,0 +1,407 @@
+/* Standard tag overrides --------------------------------------------------------------------------------- */
+
+/* Force vertical scrollbar in Firefox */
+:root {
+	overflow-y: scroll;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #121038;
+	background-image: url(images/starfield6.jpg);
+	background-repeat: repeat;
+	/* background-position: 50% 0; */
+	font-family: 'Fira Sans Condensed', sans-serif;
+	font-size: 100%;
+	text-align: left;
+	color: #3880c6;
+
+}
+
+h1 {
+	font-family: 'Teko', sans-serif;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	margin: 24px 0 24px 0;
+	color: #bfdfff;
+}
+
+h2 {
+	font-family: 'Teko', sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	margin: 16px 0 16px 0;
+	color: #bfdfff;
+}
+
+p {
+	margin: 0;
+	padding: 0.5em 0 0.5em 0;
+}
+
+ul {
+	margin: 0.5em 0 0.5em 1.5em;
+	padding: 0;
+	list-style-type: square;
+	list-style-position: outside;
+}
+
+li {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
+strong {
+	color: #74a6d7;
+	/*font-weight: normal;*/
+}
+
+
+
+/* Outer page structure --------------------------------------------------------------------------------- */
+
+.overall
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+/* tabs */
+.strip1
+{
+	width: 952px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 4px 0;
+}
+
+/* header */
+.strip2
+{
+	height: 100px;
+	margin: 0 8px;
+}
+
+/* main area */
+.strip3
+{
+	min-height: 480px;
+	
+}
+
+/* footer */
+.strip4
+{
+	padding: 24px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	
+}
+
+/* Page layout --------------------------------------------------------------------------------- */
+
+.horizontalbreak {
+	clear: both;
+}
+
+.horizontalline
+{
+	margin-top: 8px;
+	min-height: 16px;
+	border-top: 1px solid #706080;
+}
+
+.smallertext {
+	font-size: 80%;
+}
+
+.smallertextgray {
+	font-size: 80%;
+	color: #857399;
+}
+
+.white10
+{
+	padding: 4px;
+	background-color: #2b3b4c;
+}
+
+.white5
+{
+	padding: 4px;
+	background-color: #243545;
+}
+
+.sshot
+{
+	margin-top: 8px;
+}
+
+.col3A, .col3B, .col3C
+{
+	width: 320px;
+	float: left;
+}
+
+.col3BC
+{
+	width: 640px;
+	float: left;
+}
+
+.col4A, .col4B, .col4C, .col4D
+{
+	width: 240px;
+	float: left;
+}
+
+.col4BCD
+{
+	width: 720px;
+	float: left;
+}
+
+.col8BCDEFG{
+	width: 720px;
+	margin: 0 auto;
+}
+
+.colContent {
+	/* use padding here instead of margin to avoid margin collapsing */
+	padding: 8px;
+}
+
+.shadowboxA
+{
+	background-image: url(images7/col320a.html);
+	height: 8px;
+}
+.shadowboxB1
+{
+	background-image: url(images7/col320bL.html);
+	background-repeat: repeat-y;
+}
+.shadowboxB2
+{
+	background-image: url(images7/col320bR.html);
+	background-repeat: repeat-y;
+	background-position: right;
+}
+
+.shadowboxC
+{
+	background-image: url(images7/col320c.html);
+	height: 8px;
+}
+
+.shadowboxFrame
+{
+	background-color: #243545;
+	margin: 0 8px;
+}
+
+.shadowboxBorder
+{
+	border: 1px solid #31485e;
+	height: 142px;
+}
+
+.col320bcontent
+{
+	height: 144px;
+}
+
+/* Boxes --------------------------------------------------------------------------------- */
+
+.boxgreen
+{
+	background: url(images7/green25.html);
+	border-radius:5px;
+	padding: 4px;
+	color: #6cd900;	
+}
+
+.boxgreen a:link,
+.boxgreen a:visited
+{
+	text-decoration: none;
+	color: #9fff40;
+}
+
+.boxgreen a:hover,
+.boxgreen a:active
+{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.boxgreen strong
+{
+	color: #80ff00;
+}
+
+.boxgreen .smallertextgray
+{
+	color: #204000;
+}
+
+.boxwhite
+{
+	background: url(images7/white10.html);
+	border-radius:5px;
+	padding: 4px;
+	color: #96acc3;	
+	text-align: center;
+}
+
+.boxwhite a:link,
+.boxwhite a:visited
+{
+	text-decoration: none;
+	color: #c4e1ff;
+}
+
+.boxwhite a:hover,
+.boxwhite a:active
+{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.boxwhite strong
+{
+	color: #ffffff;
+}
+
+.boxred
+{
+	background: url(images7/red50.html);
+	border-radius:5px;
+	padding: 4px;
+	color: #e9d1d1;	
+}
+
+.boxred strong
+{
+	color: #ffffff;
+}
+
+/* Links --------------------------------------------------------------------------------- */
+
+a:link {
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF8000;  
+	font-weight: bold;
+	text-shadow: 0 0 2px;
+}
+
+a img {
+	border: 0;
+}
+
+
+
+
+/* Various --------------------------------------------------------------------------------- */
+
+.dialogborder {
+	border: 1px solid #31485e;
+}
+
+.dialogcontainer {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.tablerow-even {
+	background-color: #1d2c3b;
+}
+
+.tablerow-odd {
+	background-color: #1b2836;
+}
+
+.producttable td {
+	border-bottom: 1px solid #121038;
+}
+
+
+
+/* CIU --------------------------------------------------------------------------------- */
+.iconcontainer {
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+
+/* Need this outside <a> to make entire square clickable */
+.squarewrapper {
+	display: inline-block;
+}
+
+.square {
+	margin: 4px;
+	min-width: 184px;
+	min-height: 184px;
+	text-align: center;
+	border-radius: 4px;
+	background-color: rgba(56, 128, 198, 0.8);
+}
+
+.squarehi {
+	background-color: rgba(116, 166, 215, 0.8);
+}
+
+.squarewrapper a:link {
+	color: #1c305a;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.squarewrapper a:visited {
+	color: #1c305a;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.squarewrapper a:hover {
+	color: #FFFFFF;
+	font-weight: normal;
+	text-shadow: 0 0 2px;
+}
+
+.socialcontainer {
+	text-align: center;
+	width: 100%;
+}
+
+/* Need this outside <a> to make entire square clickable */
+.socialwrapper {
+	display: inline-block;
+}
+
+.social {
+	margin: 4px;
+	min-width: 88px;
+	min-height: 88px;
+	text-align: center;
+	border-radius: 4px;
+	background-color: rgba(56, 128, 198, 0.8);
+}
